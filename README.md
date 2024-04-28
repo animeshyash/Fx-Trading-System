@@ -78,13 +78,13 @@ To run this project, you will need to add the following environment variables to
 #### Perform FX conversion
 
 ```http
-  GET /fx-conversion
+  POST /fx-conversion
 ```
 
 #### Create User
 
 ```http
-  GET /user/create
+  POST /user/create
 ```
 
 ## Run Locally
@@ -92,13 +92,13 @@ To run this project, you will need to add the following environment variables to
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/animeshyash/Fx-Trading-System
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd Fx-Trading-System
 ```
 
 Install dependencies
