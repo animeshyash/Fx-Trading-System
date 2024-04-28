@@ -1,0 +1,126 @@
+openapi: 3.0.0
+paths:
+  /accounts/topup/{id}:
+    post:
+      operationId: AccountsController_topup
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/topupInputData'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Accounts
+  /accounts/balance/{id}:
+    get:
+      operationId: AccountsController_getBalance
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Accounts
+  /fx-rates:
+    get:
+      operationId: FxRatesController_getFxRate
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - Fx-rates
+  /fx-conversion:
+    post:
+      operationId: FxConversionController_currencyConversion
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/currencyConversionData'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Fx-conversion
+  /user/create:
+    post:
+      operationId: UserController_createUser
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - User
+info:
+  title: Forex Trading System
+  description: |-
+    This application implements several
+        APIs that allow users to top up their account, fetch live FX conversion rates, perform
+        FX conversions, and check their account balances.
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    topupInputData:
+      type: object
+      properties:
+        currency:
+          type: string
+        amount:
+          type: number
+      required:
+        - currency
+        - amount
+    currencyConversionData:
+      type: object
+      properties:
+        quoteId:
+          type: string
+        fromCurrency:
+          type: string
+        toCurrency:
+          type: string
+        amount:
+          type: number
+      required:
+        - quoteId
+        - fromCurrency
+        - toCurrency
+        - amount
+    CreateUserDto:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        balance:
+          type: number
+      required:
+        - username
+        - email
+        - balance

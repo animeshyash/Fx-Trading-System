@@ -23,6 +23,8 @@ FX conversions, and check their account balances.
 
 - The API Documentation has been done with the help of Swagger and the yaml file has been added in the repo.
 
+- Swagger folder contains the YAML swagger file in which API documentation has been done. The Folder also contains the screenshot of it. We can access the Swagger IO while running the project locally on the system by going to the http://localhost:PORT_NUMBER/api
+
 ## Tech Stack
 
 **Server:** NestJs
